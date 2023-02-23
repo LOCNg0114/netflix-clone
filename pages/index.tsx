@@ -4,8 +4,12 @@ import Image from "next/image";
 import Banner from "../components/Banner";
 import Header from "../components/Header";
 import Row from "../components/Row";
+import Modal from "../components/Modal";
 import { Movie } from "../typings";
 import requests from "../utils/requests";
+import  WrapperContent  from "../components/Wrapper";
+import { useContext } from "react";
+import { WrapperContext } from "../interfaces/context";
 
 interface Props {
   netflixOriginals: Movie[];
@@ -28,22 +32,12 @@ const Home = ({
   romanceMovies,
   topRated,
   trendingNow,
-}: // products,
-Props) => {
-  // console.log("netflixOriginals-----", netflixOriginals);
-  return (
-    <div
-      className={`relative h-screen bg-gradient-to-b lg:h-[140vh] 
-      }`}
-    >
-      <Head>
-        <title>Home - Netflix</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+  // products,
+}: Props) => {
 
-      <Header />
-      <main className="relative pl-4 pb-24 lg:space-y-24 lg:pl-16">
-        {/* Banner */}
+  // const {isShowModal, show ,movieId} = useContext(WrapperContext)
+  return (
+    <WrapperContent>
         <Banner netflixOriginals={netflixOriginals} />
         <section className="md:space-y-24">
           <Row title="Trending Now" movies={trendingNow} />
@@ -56,9 +50,7 @@ Props) => {
           <Row title="Romance Movies" movies={romanceMovies} />
           <Row title="Documentaries" movies={documentaries} />
         </section>
-      </main>
-      {/* Modal */}
-    </div>
+    </WrapperContent>
   );
 };
 
