@@ -10,6 +10,7 @@ import requests from "../utils/requests";
 import  WrapperContent  from "../components/Wrapper";
 import { useContext } from "react";
 import { WrapperContext } from "../interfaces/context";
+import useAuth from "../hooks/useAuth";
 
 interface Props {
   netflixOriginals: Movie[];
@@ -34,8 +35,10 @@ const Home = ({
   trendingNow,
   // products,
 }: Props) => {
+  const {logout, loading} = useAuth()
 
-  // const {isShowModal, show ,movieId} = useContext(WrapperContext)
+  if(loading) return null
+
   return (
     <WrapperContent>
         <Banner netflixOriginals={netflixOriginals} />

@@ -2,10 +2,11 @@
 import Link from 'next/link'
 import { useEffect, useState } from 'react';
 import { BiSearchAlt, BiBell } from 'react-icons/bi';
+import useAuth from '../hooks/useAuth';
 
 function Header() {
     const [isScrolled, setIsScrolled] = useState(false)
-    // const { logout } = useAuth()
+    const { logout } = useAuth()
   
     useEffect(() => {
         const handleScroll = () => {
@@ -35,8 +36,12 @@ function Header() {
 
                 {/* <BasicMenu /> */}
                 <ul className="hidden space-x-4 md:flex">
-                    <li className="headerLink">Home</li>
-                    <li className="headerLink">TV Shows</li>
+                    <Link href='/'>
+                        <li className="headerLink">Home</li>
+                    </Link>
+                    {/* <Link href='/tvshow'> */}
+                        <li className="headerLink">TV Shows</li>
+                    {/* </Link> */}
                     <li className="headerLink">Movies</li>
                     <li className="headerLink">New & Popular</li>
                     <li className="headerLink">My List</li>
@@ -47,13 +52,14 @@ function Header() {
                 <BiSearchAlt className="hidden h-6 w-6 sm:inline" />
                 <p className="hidden lg:inline">Kids</p>
                 <BiBell className="h-6 w-6" />
-                <Link href="/account">
+                {/* <Link href="/account"> */}
                     <img
+                        onClick={logout}
                         src="https://rb.gy/g1pwyx"
                         alt=""
                         className="cursor-pointer rounded"
                     />
-                </Link>
+                {/* </Link> */}
             </div>
         </header>
     )

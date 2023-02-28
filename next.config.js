@@ -14,7 +14,8 @@ module.exports = {
     domains: [ 
       "image.tmdb.org", 
       'tmdb.org', 
-      'themoviedb.org'
+      'themoviedb.org',
+      'rb.gy'
     ],
   },
 }
