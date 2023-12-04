@@ -7,7 +7,7 @@ import useAuth from '../hooks/useAuth';
 function Header() {
     const [isScrolled, setIsScrolled] = useState(false)
     const { logout } = useAuth()
-  
+
     useEffect(() => {
         const handleScroll = () => {
             if (window.scrollY > 0) {
@@ -16,9 +16,9 @@ function Header() {
                 setIsScrolled(false)
             }
         }
-  
+
         window.addEventListener('scroll', handleScroll)
-  
+
         return () => {
             window.removeEventListener('scroll', handleScroll)
         }
@@ -28,7 +28,7 @@ function Header() {
         <header className={`${isScrolled && 'bg-[#141414]'}`}>
             <div className="flex items-center space-x-2 md:space-x-10">
                 <img
-                    src="https://rb.gy/ulxxee"
+                    src="/netflix.png"
                     width={100}
                     height={100}
                     className="cursor-pointer object-contain"
@@ -40,7 +40,7 @@ function Header() {
                         <li className="headerLink">Home</li>
                     </Link>
                     {/* <Link href='/tvshow'> */}
-                        <li className="headerLink">TV Shows</li>
+                    <li className="headerLink">TV Shows</li>
                     {/* </Link> */}
                     <li className="headerLink">Movies</li>
                     <li className="headerLink">New & Popular</li>
@@ -53,12 +53,14 @@ function Header() {
                 <p className="hidden lg:inline">Kids</p>
                 <BiBell className="h-6 w-6" />
                 {/* <Link href="/account"> */}
-                    <img
-                        onClick={logout}
-                        src="https://rb.gy/g1pwyx"
-                        alt=""
-                        className="cursor-pointer rounded"
-                    />
+                <img
+                    onClick={logout}
+                    src="/netflix-sm.png"
+                    alt=""
+                    className="cursor-pointer rounded"
+                    width={30}
+                    height={30}
+                />
                 {/* </Link> */}
             </div>
         </header>
